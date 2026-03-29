@@ -1,0 +1,32 @@
+# 114-1_final-project_-MICROPROCESSOR-PRINCIPLES-AND-APPLICATIONS_
+課程名稱：1141_微算機原理與應用（含實驗） MICROPROCESSOR PRINCIPLES AND APPLICATIONS
+
+專題名稱：多功能觸控板系統 (Multi-functional Touchpad System)
+
+這是我們在微算機這堂課的小組期末專題，一個基於 PIC18F4520 微控制器與4線式電阻式觸控板開發的整合系統。
+
+本專案實現了高精度的絕對座標控制，並結合 Python 進行物理運算與遊戲渲染。
+
+核心功能1 osu! 節奏遊戲模式：以觸控板取代滑鼠，透過 Windows API (ctypes) 實現低延遲的「絕對座標」指標控制。
+
+核心功能2 保齡球遊戲模擬：利用觸控滑動的速度向量與方向，結合摩擦力物理運算，模擬真實投球手感。並根據遊戲分數，透過 PWM 控制伺服馬達（SG90）驅動實體獎勵裝置。
+
+
+技術特點1 硬體端 (C/XC8)：分時掃描技術：動態切換 TRIS 狀態與 ADC 通道，實現單通道讀取多軸數據。
+
+技術特點2 數位濾波：採用滑動平均濾波 (AVG) 與指數移動平均 (EMA)，有效克服電阻板抖動。
+
+技術特點3 通訊協議：自定義 6-byte 封包結構（含標頭 0xAA, 0x55），確保資料傳輸完整性。
+
+技術特點4 軟體端 (Python/Pygame)：使用 pyserial 進行非同步資料接收。
+
+技術特點5 座標映射處理與即時物理碰撞判定。
+
+
+系統架構感知層：4 線電阻式觸控板。
+
+控制層：PIC18F4520 處理 ADC 採樣與封包封裝。
+
+傳輸層：USB 轉 TTL 模組 (UART)。
+
+應用層：Python (Pygame) 進行物理模擬與 GUI 顯示。
