@@ -31,3 +31,4 @@
 傳輸層：USB 轉 TTL 模組 (UART)。
 
 應用層：Python (Pygame) 進行物理模擬與 GUI 顯示。
+![IMG_9859](https://github.com/user-attachments/assets/29b7d4b1-1b95-4943-9f75-2016802def99)
